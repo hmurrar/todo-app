@@ -1,0 +1,9 @@
+{{#bs-form model=this onSubmit=(action @submitAddTodoForm) as |form|}}
+    {{form.element controlType="text" label="Todo Title" placeholder="Title" value=@newTodo.title required=true onChange=( action @onTitleChange)}}
+    {{form.element controlType="checkbox" label="Is Completed" value=@newTodo.isCompleted onChange=( action @onCompleteChange)}}
+    {{#if @isEditFormHidden}}
+        {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
+    {{else}}
+        {{bs-button defaultText="Save" type="primary" buttonType="submit"}}
+    {{/if}}
+{{/bs-form}}

@@ -1,0 +1,22 @@
+<li class={{if @todo.isCompleted "todo-item is-completed" "todo-item"}}>
+            <div class="title">
+                {{@todo.title}}
+            </div>
+            <div class="controls">
+                {{#bs-button type="info" onClick=(action @edit @index)}}
+                    {{fa-icon "pencil"}}
+                {{/bs-button}}
+                {{#bs-button type="danger" onClick=(action @delete @index)}}
+                    {{fa-icon "trash"}}
+                {{/bs-button}}
+                {{#if @todo.isCompleted}}
+                    {{#bs-button type="warning" onClick=(action @complete @index)}}
+                        {{fa-icon "warning"}}
+                    {{/bs-button}}
+                {{else}}
+                    {{#bs-button type="success" onClick=(action @complete @index)}}
+                        {{fa-icon "check"}}
+                    {{/bs-button}}
+                {{/if}}
+            </div>
+        </li>

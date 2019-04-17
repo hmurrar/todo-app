@@ -1,0 +1,24 @@
+<div class="add-todo-form">
+    <h3>
+        {{#if @isEditFormHidden}}
+            Add Todo
+        {{else}}
+            Edit Todo
+        {{/if}}
+    </h3>
+    <TodoForm @isEditFormHidden={{this.isEditFormHidden}} 
+              @submitAddTodoForm={{this.submitAddTodoForm}} 
+              @newTodo={{this.newTodo}} 
+              @onTitleChange={{this.onTitleChange}} 
+              @onCompleteChange={{this.onCompleteChange}}/>
+</div>
+<ul class="todo-list">
+    <h3>
+        Todo List
+    </h3>
+    {{#each this.todos as |todo index|}}
+        <Todo @todo={{todo}} @edit={{this.toggleEditForm}} @delete={{this.deleteTodo}} @complete={{this.toggleComplete}} @index={{index}}/>
+        {{else}}
+        add todo.
+    {{/each}}
+</ul>
